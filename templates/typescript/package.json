@@ -1,0 +1,26 @@
+{
+  "name": "crembed-typescript",
+  "version": "1.0.0",
+  "description": "create-react-embeddable typescript template",
+  "main": "index.tsx",
+  "scripts": {
+    "dev": "parcel dev/index.html",
+    "start": "parcel index.tsx",
+    "build": "rm -rf dist && rm -rf .cache && parcel build index.tsx"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "typescript": "^3.9.2"
+  }
+}
