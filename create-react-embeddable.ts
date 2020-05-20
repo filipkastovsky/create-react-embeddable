@@ -30,9 +30,6 @@ export const builder: CommandBuilder = (argv) =>
             default: 'typescript',
         });
 
-export const filter = (src: string) =>
-    src.search(/node_modules|dist|.cache/g) < 0;
-
 export const handleCreate = (args: IOptions): Promise<void> => {
     console.log(`
         Creating new React Embeddable with 
@@ -41,12 +38,12 @@ export const handleCreate = (args: IOptions): Promise<void> => {
 `);
     return new Promise((res, rej) => {
         console.log('Loading...');
+
         ncp(
             `${_templatesPath}/${args.template}`,
             args.path,
             {
                 limit: 16,
-                filter,
             },
             (err) => {
                 if (err) {
