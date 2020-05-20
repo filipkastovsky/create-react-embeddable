@@ -1,0 +1,27 @@
+{
+    "name": "create-react-embeddable",
+    "version": "1.0.0",
+    "description": "Create and embed your react app on any app or website!",
+    "main": "create-react-embeddable.js",
+    "module": "create-react-embeddable.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "tsc --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "author": "Filip Kaštovský",
+    "license": "BSD-3-Clause",
+    "dependencies": {
+        "ncp": "^2.0.0",
+        "yargs": "^15.3.1"
+    },
+    "devDependencies": {
+        "@types/ncp": "^2.0.4",
+        "@types/yargs": "^15.0.5",
+        "typescript": "^3.9.3"
+    },
+    "bin": "cli/cli.js"
+}
