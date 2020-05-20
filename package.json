@@ -10,7 +10,7 @@
     },
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/filipkastovsky/create-react-embeddable.git"
     },
     "author": "Filip Kaštovský",
     "license": "BSD-3-Clause",
