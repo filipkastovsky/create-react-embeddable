@@ -6,6 +6,7 @@
     "module": "create-react-embeddable.js",
     "scripts": {
         "build": "tsc",
+        "typecheck": "tsc --noEmit",
         "start": "tsc --watch",
         "prepublish": "npm run build"
     },
