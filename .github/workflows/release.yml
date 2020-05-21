@@ -16,3 +16,13 @@ jobs:
                   repo_token: '${{ secrets.GITHUB_TOKEN }}'
                   automatic_release_tag: 'latest'
                   prerelease: false
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: '12.x'
+                  registry-url: 'https://registry.npmjs.org'
+            - run: npm ci
+            - run: npm run build
+            - run: npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
