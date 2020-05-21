@@ -54,9 +54,9 @@ export const handleCreate = (args: IOptions): Promise<void> => {
 
                 console.log(`
                Now you can start your project with 
-                $ cd ${args.path}
-                $ npm i
-                $ npm run dev
+                 $ cd ${args.path}
+                 $ npm i
+                 $ npm run dev
         `);
                 return res();
             }
