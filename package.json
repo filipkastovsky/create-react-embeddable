@@ -1,6 +1,6 @@
 {
     "name": "create-react-embeddable",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Create and embed your react app on any app or website!",
     "main": "create-react-embeddable.js",
     "module": "create-react-embeddable.js",
@@ -8,7 +8,7 @@
         "build": "tsc",
         "typecheck": "tsc --noEmit",
         "start": "tsc --watch",
-        "prepublish": "npm run build"
+        "prepublishOnly": "npm run build"
     },
     "repository": {
         "type": "git",
