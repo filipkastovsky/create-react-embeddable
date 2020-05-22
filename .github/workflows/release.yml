@@ -9,7 +9,7 @@ jobs:
     patch:
         name: patch
         runs-on: 'ubuntu-latest'
-        if: "contains(github.event.head_commit.message,'#patch')"
+       
         steps:
             - uses: actions/checkout@v2
             - run: npm version patch
@@ -35,16 +35,39 @@ jobs:
         runs-on: 'ubuntu-latest'
 
         steps:
-            - uses: 'marvinpinto/action-automatic-releases@latest'
-              with:
-                  repo_token: '${{ secrets.GITHUB_TOKEN }}'
-                  automatic_release_tag: 'latest'
-                  prerelease: false
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v1
               with:
                   node-version: '12.x'
                   registry-url: 'https://registry.npmjs.org'
+            - uses: fusion-engineering/setup-git-credentials@v2
+              with:
+                  credentials: ${{ secrets.GIT_CREDENTIALS }} 
+                    
+            - name: patch
+              id: patch
+              if: "contains(github.event.head_commit.message,'#patch')"
+              run: npm version patch
+          
+            - name: minor
+              id: minor
+              if: "contains(github.event.head_commit.message,'#minor')"
+              run: npm version minor
+          
+            - name: major
+              id: major
+              if: "contains(github.event.head_commit.message,'#major')"
+              run: npm version major
+          
+            - name: get-npm-version
+              id: package-version
+              uses: martinbeentjes/npm-get-version-action@master
+          
+            - uses: 'marvinpinto/action-automatic-releases@latest'
+              with:
+                  repo_token: '${{ secrets.GITHUB_TOKEN }}'
+                  automatic_release_tag: '${{ steps.package-version.outputs.current-version }}'
+                  prerelease: false
             - run: npm ci
             - run: npm publish --access public
               env:
