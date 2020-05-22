@@ -4,9 +4,9 @@
   "description": "create-react-embeddable typescript template",
   "main": "index.tsx",
   "scripts": {
-    "dev": "parcel dev/index.html",
+    "dev": "rm -rf dev/build && parcel dev/index.html --out-dir dev/build",
     "start": "parcel index.tsx",
-    "build": "rm -rf dist && rm -rf .cache && parcel build index.tsx"
+    "build": "rm -rf .cache && rm -rf dev/build && rm -rf build && parcel build index.tsx --out-dir build"
   },
   "author": "",
   "license": "ISC",
