@@ -17,41 +17,10 @@ jobs:
               with:
                   node-version: '12.x'
                   registry-url: 'https://registry.npmjs.org'
-            - run: |
-                  git config --global user.email "ci@create-react-embeddable.com"
-                  git config --global user.name "CI"
-
-            - name: patch
-              id: patch
-              if: "contains(github.event.head_commit.message,'#patch')"
-              run: npm version patch
-
-            - name: minor
-              id: minor
-              if: "contains(github.event.head_commit.message,'#minor')"
-              run: npm version minor
-
-            - name: major
-              id: major
-              if: "contains(github.event.head_commit.message,'#major')"
-              run: npm version major
 
             - name: get-npm-version
               id: package-version
               uses: martinbeentjes/npm-get-version-action@master
-
-            - name: FF devel
-              uses: peter-evans/create-pull-request@v2
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  commit-message: ci bump \#no-release \#update-devel
-                  title: Bump to ${{ steps.package-version.outputs.current-version }}
-
-            - uses: devmasx/merge-branch@v1.1.0
-              with:
-                  type: now
-                  label_name: 'ci'
-                  target_branch: 'devel'
 
             - uses: 'marvinpinto/action-automatic-releases@latest'
               with:
