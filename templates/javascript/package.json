@@ -1,0 +1,20 @@
+{
+  "name": "embeddable-javascript",
+  "version": "1.0.0",
+  "description": "create-react-embeddable javascript template",
+  "main": "index.jsx",
+  "scripts": {
+    "dev": "rm -rf dev/build && parcel dev/index.html --out-dir dev/build",
+    "start": "parcel index.jsx",
+    "build": "rm -rf .cache && rm -rf dev/build && rm -rf build && parcel build index.jsx --out-dir build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}

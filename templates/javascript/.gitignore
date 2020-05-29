@@ -1,0 +1,8 @@
+node_modules
+build
+.cache
+.idea
+.vscode
+
+package-lock.json
+yarn.lock
