@@ -27,7 +27,7 @@ export const builder: CommandBuilder = (argv) =>
             type: 'string',
             demandOption: false,
             description: 'Use a template',
-            default: 'typescript',
+            default: 'javascript',
         });
 
 export const handleCreate = (args: IOptions): Promise<void> => {
