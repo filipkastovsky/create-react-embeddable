@@ -1,6 +1,6 @@
 {
     "name": "create-react-embeddable",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Create and embed your react app on any app or website!",
     "main": "create-react-embeddable.js",
     "module": "create-react-embeddable.js",
